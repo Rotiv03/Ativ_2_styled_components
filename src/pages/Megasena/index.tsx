@@ -8,6 +8,7 @@ import { ListaNumeros } from "../../components/ListaNumerosMegaSena";
 import { useContexto } from "../../hooks";
 import { LoteriaProps } from "../../types";
 import { Carregando } from "../../components/Carregando";
+import NomeLoteria from "../../components/NomeLoteria";
 
 export default function Megasena() {
     const { megasena } = useContexto();
@@ -26,10 +27,10 @@ export default function Megasena() {
                     <ResultadoStl>
                         {/* megasena */}
                         <LeftStl>
-                            <TituloStl>
-                                <LogoStl src={TrevoMegaSena} alt='Mega-sena' />
-                                <Titulo cor="verde" tamanho="grande">MEGA-SENA</Titulo>
-                            </TituloStl>
+                            <NomeLoteria
+                            logo={TrevoMegaSena}
+                            titulo="Megasena"
+                            />
                             <LeftContentStl>
                                 <Descricao>
                                     {`Estimativa de prêmio do próximo concurso. Sorteio em: ${megasena.dataProximoConcurso}`}
@@ -78,13 +79,6 @@ const LeftStl = styled.div`
     margin-right: 64px;
 `;
 
-const TituloStl = styled.span`
-    display: flex;
-    align-items: center;
-    padding: 0;
-    height: 48px;
-    margin-bottom: 20px;
-`;
 
 const LeftContentStl = styled.div`
     margin-left: 48px;
@@ -92,9 +86,6 @@ const LeftContentStl = styled.div`
     flex-direction: column;
 `;
 
-const LogoStl = styled.img`
-    margin-right: 12px
-`;
 
 const ValorStl = styled.span`
     margin-top: 12px;
